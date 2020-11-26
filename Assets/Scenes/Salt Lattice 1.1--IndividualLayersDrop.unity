@@ -489,6 +489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Salt 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7595902379923623176, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d71ea0c9630040148a3c9f877375f217, type: 3}
 --- !u!224 &231033144 stripped
@@ -504,6 +509,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 954962668}
     m_Modifications:
+    - target: {fileID: 680240660322856637, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804394551}
+    - target: {fileID: 680240660322856637, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnSaltLattice
+      objectReference: {fileID: 0}
     - target: {fileID: 3960053801966746264, guid: d71ea0c9630040148a3c9f877375f217,
         type: 3}
       propertyPath: buttonEnabled.Array.data[0]
@@ -552,6 +567,21 @@ PrefabInstance:
     - target: {fileID: 3960053801966746264, guid: d71ea0c9630040148a3c9f877375f217,
         type: 3}
       propertyPath: buttonEnabled.Array.data[8]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960053801966746264, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: buttonEnabled.Array.data[11]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960053801966746264, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: buttonEnabled.Array.data[12]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960053801966746264, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: buttonEnabled.Array.data[13]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6112650302247090663, guid: d71ea0c9630040148a3c9f877375f217,
@@ -659,6 +689,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6321519388426561209, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1502435242}
+    - target: {fileID: 6321519388426561209, guid: d71ea0c9630040148a3c9f877375f217,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnSaltLatticeLayerByLayer
+      objectReference: {fileID: 0}
     - target: {fileID: 7595902379923623176, guid: d71ea0c9630040148a3c9f877375f217,
         type: 3}
       propertyPath: m_Name
@@ -672,7 +712,7 @@ PrefabInstance:
     - target: {fileID: 7692380624155331746, guid: d71ea0c9630040148a3c9f877375f217,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnSaltLattice
+      value: SpawnSaltLatticeLayerByLayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d71ea0c9630040148a3c9f877375f217, type: 3}
@@ -700,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db030b5f37b2b264793b0373926bc421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zeroBounce: {fileID: 0}
 --- !u!1 &342095428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1051,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 520879256}
   m_OnClick:
     m_PersistentCalls:
@@ -2546,6 +2587,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1502435236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 252476688877845932, guid: d71ea0c9630040148a3c9f877375f217,
+    type: 3}
+  m_PrefabInstance: {fileID: 281822872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1502435242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502435236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db030b5f37b2b264793b0373926bc421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroBounce: {fileID: 0}
 --- !u!1 &1583477370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,7 +2813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d63b0fe8aaa734c9c9e40a7e0ccd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  k: 1000
+  k: 1250
   Anions: []
   Cations: []
   ActiveCations: []
@@ -2788,7 +2848,7 @@ GameObject:
   - component: {fileID: 1728222349}
   m_Layer: 0
   m_Name: TopWall
-  m_TagString: Waterline
+  m_TagString: TopWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2930,7 +2990,7 @@ PrefabInstance:
     - target: {fileID: 6341775990227456043, guid: 9f455930b6315d54dac4eafc41987a9e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6341775990227456043, guid: 9f455930b6315d54dac4eafc41987a9e,
         type: 3}
@@ -3105,6 +3165,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1804394550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6667354769416223031, guid: d71ea0c9630040148a3c9f877375f217,
+    type: 3}
+  m_PrefabInstance: {fileID: 281822872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1804394551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804394550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db030b5f37b2b264793b0373926bc421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroBounce: {fileID: 0}
 --- !u!1 &1866734178
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,8 +3383,53 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1946130008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946130009}
+  - component: {fileID: 1946130010}
+  m_Layer: 0
+  m_Name: WaterInstantiationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1946130009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946130008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6725762, y: 0.73987657, z: -4.376667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1946130010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946130008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d6863ddf6baa242a26e1383d8188c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterMolecule: {fileID: 3845422906327184440, guid: 2d98760286118b94291c4a08e527fc21,
+    type: 3}
 --- !u!1 &2063614063
 GameObject:
   m_ObjectHideFlags: 0

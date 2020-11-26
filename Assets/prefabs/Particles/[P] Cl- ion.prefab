@@ -90,7 +90,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6450641329218374421}
-  m_Material: {fileID: 13400000, guid: 806ab7d27db249141b7c0eececa42eaa, type: 2}
+  m_Material: {fileID: 13400000, guid: 7beaa849df6f4d545b7702f47fa18c66, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -107,7 +107,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 104
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6450641329218374421}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 614d46593e450bb4d8db92b4e5e8b376, type: 3}
   m_Name: 
@@ -128,6 +128,8 @@ MonoBehaviour:
   ChargeActive: 0
   vx: 0
   vy: 0
+  reductionPotential: 0
+  ReactionPrefab: {fileID: 0}
 --- !u!114 &3335087934586408850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,9 +137,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6450641329218374421}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce690c5a456c8546a341dde7c26c666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AnionIndex: 0
+  netCharge: 0

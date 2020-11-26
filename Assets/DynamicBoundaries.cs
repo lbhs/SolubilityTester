@@ -12,6 +12,9 @@ public class DynamicBoundaries : MonoBehaviour
 
     private float oldAspect;
 
+    public Vector3 leftBoundary;
+    public Vector3 rightBoundary;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,9 +34,11 @@ public class DynamicBoundaries : MonoBehaviour
     private void CalculateBounds()
     {
         Vector3 leftMostPosition = Camera.main.ViewportToWorldPoint(new Vector3(.0f, .5f, -Camera.main.transform.position.z));
+        leftBoundary = leftMostPosition;
         leftWall.transform.position = leftMostPosition;
 
         Vector3 rightMostPosition = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, .5f, -Camera.main.transform.position.z));
+        rightBoundary = rightMostPosition;
         rightWall.transform.position = rightMostPosition;
     }
 }
