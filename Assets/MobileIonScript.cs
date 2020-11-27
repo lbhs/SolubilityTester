@@ -20,13 +20,18 @@ public class MobileIonScript : MonoBehaviour
     //private Slider temperatureSlider;
     private WallCompressionController topWall;
 
+    public Vector3 ejectionVelocity;
+    public Vector2 latticePosition;
+
+    public int solubility;
+
     // Start is called before the first frame update
     void OnEnable()
     {
         //print("Temperature = " + temp);
 
         thisIon = gameObject.GetComponent<Rigidbody>();
-        topWall = GameObject.Find("BackWall").GetComponent<WallCompressionController>();
+        topWall = GameObject.Find("BackWall").GetComponent<WallCompressionController>(); 
         //temperatureSlider = GameObject.Find("temperatureSlider").GetComponent<Slider>();
 
         //vx = UnityEngine.Random.Range(-5f, 5f);

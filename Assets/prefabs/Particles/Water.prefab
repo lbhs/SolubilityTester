@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6833468196448846092}
   - component: {fileID: 3932801236425007388}
   - component: {fileID: 4426025978303419678}
-  - component: {fileID: 8444015885685349814}
   - component: {fileID: 5859758694991218288}
+  - component: {fileID: 7642335846822029433}
   m_Layer: 0
   m_Name: Water
   m_TagString: Cation
@@ -116,21 +116,8 @@ MonoBehaviour:
   ChargeActive: 0
   vx: 0
   vy: 0
---- !u!114 &8444015885685349814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845422906327184440}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58034c4f19b88124c838aee6595e21ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CationIndex: 6
-  AnionCollidedSound: {fileID: 0}
-  NonBounceMaterial: {fileID: 13400000, guid: 25bed991b6664f24b8d0156f7f64c1a1, type: 2}
+  reductionPotential: 0
+  ReactionPrefab: {fileID: 0}
 --- !u!64 &5859758694991218288
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -138,10 +125,22 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3845422906327184440}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 806ab7d27db249141b7c0eececa42eaa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4120282497509524278, guid: 7073c433c0255f4418029f9d7c0e8ff5, type: 3}
+--- !u!114 &7642335846822029433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845422906327184440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6fd562e05e58a4496631096c95f081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

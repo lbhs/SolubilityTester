@@ -116,7 +116,7 @@ public class IonicForceCalculatorScript : MonoBehaviour
                     }
                     else if (a.GetComponent<MobileIonScript>() != null && b.GetComponent<MobileIonScript>() != null)
                     {
-                        if (a.GetComponent<PassThroughWallScript>().chargeActive && b.GetComponent<PassThroughWallScript>().chargeActive)
+                        if (a.GetComponent<MobileIonScript>().ChargeActive && b.GetComponent<MobileIonScript>().ChargeActive)
                         {
                             //all variable retrieval necessary for force math                   
                             //float m1 = a.GetComponent<Rigidbody>().mass;

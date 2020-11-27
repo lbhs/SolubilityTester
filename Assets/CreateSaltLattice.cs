@@ -11,6 +11,9 @@ public class CreateSaltLattice : MonoBehaviour
     [SerializeField]
     private PhysicMaterial zeroBounce;
 
+    [SerializeField]
+    private GameObject wholeLattice;
+
     // The layer of the lattice--starts with 0
     private int j;
 
@@ -43,6 +46,11 @@ public class CreateSaltLattice : MonoBehaviour
             GameObject cation = spriteToSpawn.GetComponent<SaltFallsIntoSceneCases>().DissociationCation;
             GameObject anion = spriteToSpawn.GetComponent<SaltFallsIntoSceneCases>().DissociationAnion;
 
+            // Individual ions need to know this information for when they collide with water
+            // Water molecules will only take action if they know that the compound that the ion was a part of was soluble
+            int moleculeSolubility = BondingMatrixScript.SolubilityChart[cation.GetComponent<IonicBondingScript>().CationIndex,
+                                                                         anion.GetComponent<AnionScript2>().AnionIndex];
+
             for (int j = 0; j < 3; j++)
             {
                 for (int i = 0; i < 4; i++)
@@ -55,7 +63,10 @@ public class CreateSaltLattice : MonoBehaviour
                             GameObject instantiatedAnion = Instantiate(anion);
                             instantiatedAnion.transform.position = instantiationPosition;
                             instantiatedAnion.transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
-                            instantiatedAnion.AddComponent<PassThroughWallScript>();
+                            // Lattice position may be useful to calculate ejection direction
+                            instantiatedAnion.GetComponent<MobileIonScript>().latticePosition = new Vector2(i, 2 - j);
+                            instantiatedAnion.GetComponent<MobileIonScript>().solubility = moleculeSolubility;
+                            //instantiatedAnion.AddComponent<PassThroughWallScript>();
                             AddElectroStaticForceToParticle(instantiatedAnion);
                         }
                         else
@@ -63,7 +74,9 @@ public class CreateSaltLattice : MonoBehaviour
                             GameObject instantiatedCation = Instantiate(cation);
                             instantiatedCation.transform.position = instantiationPosition;
                             instantiatedCation.transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
-                            instantiatedCation.AddComponent<PassThroughWallScript>();
+                            instantiatedCation.GetComponent<MobileIonScript>().latticePosition = new Vector2(i, 2 - j);
+                            instantiatedCation.GetComponent<MobileIonScript>().solubility = moleculeSolubility;
+                            //instantiatedCation.AddComponent<PassThroughWallScript>();
                             AddElectroStaticForceToParticle(instantiatedCation);
                         }
                     }
@@ -74,7 +87,9 @@ public class CreateSaltLattice : MonoBehaviour
                             GameObject instantiatedAnion = Instantiate(anion);
                             instantiatedAnion.transform.position = instantiationPosition;
                             instantiatedAnion.transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
-                            instantiatedAnion.AddComponent<PassThroughWallScript>();
+                            instantiatedAnion.GetComponent<MobileIonScript>().latticePosition = new Vector2(i, 2 - j);
+                            instantiatedAnion.GetComponent<MobileIonScript>().solubility = moleculeSolubility;
+                            //instantiatedAnion.AddComponent<PassThroughWallScript>();
                             AddElectroStaticForceToParticle(instantiatedAnion);
                         }
                         else
@@ -82,16 +97,26 @@ public class CreateSaltLattice : MonoBehaviour
                             GameObject instantiatedCation = Instantiate(cation);
                             instantiatedCation.transform.position = instantiationPosition;
                             instantiatedCation.transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
-                            instantiatedCation.AddComponent<PassThroughWallScript>();
+                            instantiatedCation.GetComponent<MobileIonScript>().latticePosition = new Vector2(i, 2 - j);
+                            instantiatedCation.GetComponent<MobileIonScript>().solubility = moleculeSolubility;
+                            //instantiatedCation.AddComponent<PassThroughWallScript>();
                             AddElectroStaticForceToParticle(instantiatedCation);
                         }
                     }
                 }
             }
+            // The PassThroughWallScript was not a very ideal approach to allow the prefabs to pass through the top wall
+            // So, the wall is initially disabled, yet after 5s, when the water molecules are instantiated, the wall is re-established
+            StartCoroutine(PlaceTopWall(5f));
+            // After 7s, instantiate three water molecules
+            StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(7f, 3));
+            // Instantiate no more lattices
+            gameObject.GetComponent<Button>().interactable = false;
+
         }
     }
 
-    // This method needs to be called 
+    // No longer being used in the main "Whole Lattice Drops" scene
     public void SpawnSaltLatticeLayerByLayer()
     {
         // Case 1: Two ions/salt - 3x4 lattice
@@ -157,20 +182,31 @@ public class CreateSaltLattice : MonoBehaviour
                         }
                     }
 
-                    j++;
+                    if (j == 2)
+                    {
+                        // After 5s, instantiate three water molecules
+                        StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(5f, 3));
+                        gameObject.GetComponent<Button>().interactable = false;
+                    }
 
+                    j++;
 
                     // 2 second delay before instantiating next layer
                     StartCoroutine(LimitSpawns(2f));
                 }
             }
-            else
-            {
-                // After 5s, instantiate three water molecules
-                StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(5f, 3));
-                gameObject.GetComponent<Button>().interactable = false;
-            }
         }
+    }
+
+    // Another experimental method--no longer in use
+    public void InstantiateEntireLattice()
+    {
+        Vector3 worldSpaceInstantiationPosition = Camera.main.ScreenToWorldPoint(GetComponent<RectTransform>().transform.position);
+        // Setting the z-position to 0 allows the sprite to render on top of the canvas
+        worldSpaceInstantiationPosition.z = 0;
+
+        GameObject lattice = Instantiate(wholeLattice);
+        lattice.transform.position = worldSpaceInstantiationPosition;
     }
 
     private void AddElectroStaticForceToParticle(GameObject particle)
@@ -186,6 +222,16 @@ public class CreateSaltLattice : MonoBehaviour
         canSpawn = false;
         yield return new WaitForSeconds(duration);
         canSpawn = true;
+    }
+
+    private IEnumerator PlaceTopWall(float duration)
+    {
+        GameObject topWall = GameObject.Find("BackWall").transform.GetChild(1).gameObject;
+
+        yield return new WaitForSeconds(duration);
+
+        topWall.SetActive(true);
+
     }
 
     // Update is called once per frame
