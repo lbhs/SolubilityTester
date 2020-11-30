@@ -11,18 +11,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Archive/IonReactor Sai Development.unity
     guid: ef1dbc7d58793ce4399116cd448ac46c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LaunchScene.unity
     guid: da72bf1559660b341a15f72d92fd510c
-  - enabled: 1
-    path: Assets/Scenes/IonReactor 4.2 (Draggable Waterline).unity
-    guid: 97cf597fec7d87844bf516df39d317ae
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Archive/Single Salt 1.2.unity
     guid: 1ef50c644812de34aaaadb80f0108727
-  - enabled: 1
-    path: Assets/Scenes/Metal+Ion 1.2.unity
-    guid: 6a723c48b44a1544195c3474e13d78ee
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Archive/IonReactor 4.1 (1.35 scale, mass increases, limit
       to 4 clicks).unity
@@ -36,4 +36,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Salt Lattice 1.1--Whole Lattice Drops.unity
+    guid: a95babb3b24c2a641887f524d6ab2049
   m_configObjects: {}

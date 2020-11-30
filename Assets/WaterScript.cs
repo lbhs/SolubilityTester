@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class WaterScript : MonoBehaviour
 {
+    // Revise masses (11/28/2020):
+    // Cl-: 2
+    // Cu 2+: 3.5
+    // Na+: 1
+    // SO4 -2: 5
+    // Ag+: 6
+    // These are relative masses to water
+
+    public PhysicMaterial bouncyIon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +35,10 @@ public class WaterScript : MonoBehaviour
                 ion.GetComponent<MobileIonScript>().enabled = true;
                 // This is temporary--make the ion follow the water molecule 
                 ion.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity;
+                // Disable x-coordinate constraint
+                ion.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+
+                ion.GetComponent<SphereCollider>().material = bouncyIon;
             }
         }
     }

@@ -130,6 +130,9 @@ MonoBehaviour:
   vy: 0
   reductionPotential: 0
   ReactionPrefab: {fileID: 0}
+  ejectionVelocity: {x: 0, y: 0, z: 0}
+  latticePosition: {x: 0, y: 0}
+  solubility: 0
 --- !u!114 &6590994524596449888
 MonoBehaviour:
   m_ObjectHideFlags: 0

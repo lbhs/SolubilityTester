@@ -3,7 +3,12 @@ guid: 7073c433c0255f4418029f9d7c0e8ff5
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paint - Enamel Glossy (Red)
+    second: {fileID: 2100000, guid: a1cdd6dc255bd6642915cbe4cb3cf844, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -81,7 +86,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

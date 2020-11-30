@@ -63,7 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -7986855199053626473, guid: 7073c433c0255f4418029f9d7c0e8ff5, type: 3}
-  - {fileID: 3216205984053527769, guid: 7073c433c0255f4418029f9d7c0e8ff5, type: 3}
+  - {fileID: 2100000, guid: a1cdd6dc255bd6642915cbe4cb3cf844, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,6 +118,9 @@ MonoBehaviour:
   vy: 0
   reductionPotential: 0
   ReactionPrefab: {fileID: 0}
+  ejectionVelocity: {x: 0, y: 0, z: 0}
+  latticePosition: {x: 0, y: 0}
+  solubility: 0
 --- !u!64 &5859758694991218288
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -144,3 +147,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fd562e05e58a4496631096c95f081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bouncyIon: {fileID: 13400000, guid: 806ab7d27db249141b7c0eececa42eaa, type: 2}
