@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CreateSaltLattice : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class CreateSaltLattice : MonoBehaviour
             Vector3 worldSpaceInstantiationPosition = Camera.main.ScreenToWorldPoint(GetComponent<RectTransform>().transform.position);
             // Setting the z-position to 0 allows the sprite to render on top of the canvas
             worldSpaceInstantiationPosition.z = 0;
+            worldSpaceInstantiationPosition.x = 0;
 
             GameObject cation = spriteToSpawn.GetComponent<SaltFallsIntoSceneCases>().DissociationCation;
             GameObject anion = spriteToSpawn.GetComponent<SaltFallsIntoSceneCases>().DissociationAnion;
@@ -51,14 +53,14 @@ public class CreateSaltLattice : MonoBehaviour
             int moleculeSolubility = BondingMatrixScript.SolubilityChart[cation.GetComponent<IonicBondingScript>().CationIndex,
                                                                          anion.GetComponent<AnionScript2>().AnionIndex];
 
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 2; j++)
             {
-                for (int i = 0; i < 4; i++)
+                for (int i = -2; i < 2; i++)
                 {
                     Vector3 instantiationPosition = new Vector3(worldSpaceInstantiationPosition.x + 1.35f * i, worldSpaceInstantiationPosition.y + 1.35f * j);
                     if (j % 2 == 1)
                     {
-                        if (i % 2 == 1)
+                        if (Math.Abs(i) % 2 == 1)
                         {
                             GameObject instantiatedAnion = Instantiate(anion);
                             instantiatedAnion.transform.position = instantiationPosition;
@@ -82,7 +84,7 @@ public class CreateSaltLattice : MonoBehaviour
                     }
                     else
                     {
-                        if (i % 2 == 0)
+                        if (Math.Abs(i) % 2 == 0)
                         {
                             GameObject instantiatedAnion = Instantiate(anion);
                             instantiatedAnion.transform.position = instantiationPosition;
@@ -109,7 +111,7 @@ public class CreateSaltLattice : MonoBehaviour
             // So, the wall is initially disabled, yet after 5s, when the water molecules are instantiated, the wall is re-established
             StartCoroutine(PlaceTopWall(5f));
             // After 7s, instantiate three water molecules
-            StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(7f, 3));
+            StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(10f, 3));
             // Instantiate no more lattices
             gameObject.GetComponent<Button>().interactable = false;
 

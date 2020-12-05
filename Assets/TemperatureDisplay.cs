@@ -18,6 +18,6 @@ public class TemperatureDisplay : MonoBehaviour
 
     public void ValueChangedHandler()
     {
-        text.text = string.Format("Temp. Constant: {0}", slider.value);
+        text.text = string.Format("Temperature: {0} °C", slider.value * 10);
     }
 }

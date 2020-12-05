@@ -10,7 +10,7 @@ public class PauseController : MonoBehaviour
     [SerializeField]
     private Text buttonText;
 
-    private float lastTimescale;
+    public float lastTimescale;
    
     // Start is called before the first frame update
     void Start()
