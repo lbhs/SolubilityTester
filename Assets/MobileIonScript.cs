@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MobileIonScript : MonoBehaviour
 {
-    public int charge;
+    public float charge;
     public bool ChargeActive;
     private Vector3 velocity;
     private float temp;

@@ -27,7 +27,7 @@ public class WaterScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Colliding with an ion that has not been removed from the lattice (MobileIonScript is disabled)
-        if (collision.gameObject.tag == "Cation"
+        if ((collision.gameObject.tag == "Cation" || collision.gameObject.tag == "Anion")
             && collision.gameObject.GetComponent<MobileIonScript>().enabled == false)
         {
             GameObject ion = collision.gameObject;
@@ -49,40 +49,6 @@ public class WaterScript : MonoBehaviour
             else
             {
                 soundController.PlayFailure();
-            }
-        }
-    }
-
-    public void HydrogenCollidedWithIon(GameObject collidedObject)
-    {
-        if (collidedObject != currentlyProcessingIon)
-        {
-            currentlyProcessingIon = collidedObject;
-
-            // Colliding with an ion that has not been removed from the lattice (MobileIonScript is disabled)
-            if ((collidedObject.gameObject.tag == "Anion" || collidedObject.gameObject.tag == "Cation")
-                && collidedObject.gameObject.GetComponent<MobileIonScript>().enabled == false)
-            {
-                GameObject ion = collidedObject.gameObject;
-                if (ion.GetComponent<MobileIonScript>().solubility == 0)
-                {
-                    // Disable charge
-                    ion.GetComponent<MobileIonScript>().ChargeActive = false;
-                    // Enable MobileIonScript to give ion (now neutral) autonomous motion
-                    ion.GetComponent<MobileIonScript>().enabled = true;
-                    // This is temporary--make the ion follow the water molecule 
-                    ion.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity;
-                    // Disable x-coordinate constraint
-                    ion.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-
-                    ion.GetComponent<SphereCollider>().material = bouncyIon;
-
-                    soundController.PlaySuccess();
-                }
-                else
-                {
-                    soundController.PlayFailure();
-                }
             }
         }
     }

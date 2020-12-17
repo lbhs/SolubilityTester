@@ -40,10 +40,17 @@ public class WaterInstantiationController : MonoBehaviour
             // The randomly-chosen Y position assumes that the waterline is not lowered
             float randomYPosition = UnityEngine.Random.Range(-7f, -2f);
             GameObject water = Instantiate(waterMolecule);
+            // Account for solvation
+            if (water.transform.childCount > 0)
+            {
+                // Oxygen
+                ionicForceCalculatorScript.ActiveIons.Add(water);
+                // H
+                ionicForceCalculatorScript.ActiveIons.Add(water.transform.GetChild(0).gameObject);
+                // H
+                ionicForceCalculatorScript.ActiveIons.Add(water.transform.GetChild(1).gameObject);
+            }
             water.transform.position = new Vector3(randomXPosition, randomYPosition, 0);
-            ionicForceCalculatorScript.ActiveIons.Add(water);
-            ionicForceCalculatorScript.ActiveIons.Add(water.transform.GetChild(0).gameObject);
-            ionicForceCalculatorScript.ActiveIons.Add(water.transform.GetChild(1).gameObject);
         }
     }
 }
