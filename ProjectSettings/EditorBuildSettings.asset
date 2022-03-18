@@ -36,7 +36,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Salt Lattice 1.1--Whole Lattice Drops.unity
     guid: a95babb3b24c2a641887f524d6ab2049
+  - enabled: 1
+    path: Assets/Scenes/Salt Lattice 1.2 -- New Dropdown Menu.unity
+    guid: 26d974d931615744c966ebe192028ee8
   m_configObjects: {}
