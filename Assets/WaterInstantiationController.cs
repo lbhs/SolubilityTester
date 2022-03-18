@@ -8,6 +8,9 @@ public class WaterInstantiationController : MonoBehaviour
     [SerializeField]
     private GameObject waterMolecule;
 
+    [SerializeField]
+    private int numWater;
+
     private IonicForceCalculatorScript ionicForceCalculatorScript;
 
     // Start is called before the first frame update
@@ -22,7 +25,7 @@ public class WaterInstantiationController : MonoBehaviour
         
     }
 
-    public IEnumerator InstantiateWaterWithinBounds(float delay, int numWater)
+    public IEnumerator InstantiateWaterWithinBounds(float delay)
     {
         yield return new WaitForSeconds(delay);
 
@@ -51,6 +54,7 @@ public class WaterInstantiationController : MonoBehaviour
                 ionicForceCalculatorScript.ActiveIons.Add(water.transform.GetChild(1).gameObject);
             }
             water.transform.position = new Vector3(randomXPosition, randomYPosition, 0);
+            water.GetComponent<Rigidbody>().velocity = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
         }
     }
 }

@@ -111,7 +111,7 @@ public class CreateSaltLattice : MonoBehaviour
             // So, the wall is initially disabled, yet after 5s, when the water molecules are instantiated, the wall is re-established
             StartCoroutine(PlaceTopWall(5f));
             // After 7s, instantiate three water molecules
-            StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(10f, 3));
+            StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(10f));
             // Instantiate no more lattices
             gameObject.GetComponent<Button>().interactable = false;
 
@@ -187,7 +187,7 @@ public class CreateSaltLattice : MonoBehaviour
                     if (j == 2)
                     {
                         // After 5s, instantiate three water molecules
-                        StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(5f, 3));
+                        StartCoroutine(FindObjectOfType<WaterInstantiationController>().InstantiateWaterWithinBounds(5f));
                         gameObject.GetComponent<Button>().interactable = false;
                     }
 

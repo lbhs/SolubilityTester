@@ -20,7 +20,7 @@ public class ForceTextInCenterTMP : MonoBehaviour
         if (imageOfSalt.sprite == null)
         {
             // TextAnchor.MiddleCenter
-            GetComponent<TMP_Text>().alignment = TextAlignmentOptions.MidlineJustified;
+            GetComponent<TMP_Text>().alignment = TextAlignmentOptions.Center;
         }
         else
         {
