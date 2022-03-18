@@ -1651,48 +1651,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saltButtons:
-  - {fileID: 1271431238344783820}
-  - {fileID: 3960053802729919525}
-  - {fileID: 8897544411009950464}
-  - {fileID: 4571621381993442798}
-  - {fileID: 3937335554013157750}
-  - {fileID: 252476688877845932}
-  - {fileID: 6667354769416223031}
-  - {fileID: 6794856045940777266}
-  - {fileID: 2501803064206337338}
-  - {fileID: 7258294457926120074}
-  - {fileID: 1605640135}
-  - {fileID: 91408915}
   - {fileID: 1773354099}
+  - {fileID: 91408915}
+  - {fileID: 1271431238344783820}
+  - {fileID: 252476688877845932}
+  - {fileID: 1605640135}
   buttonImages:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 21300000, guid: ec0cfd0fa56d9e54dbbb889494ac42e7, type: 3}
-  - {fileID: 21300000, guid: 9a652825484cb3448aee37a76c3d3c30, type: 3}
-  - {fileID: 21300000, guid: d412c30aadb1139498834aca4d7c66ca, type: 3}
-  - {fileID: 21300000, guid: 523670dca7459554584692ceb6e241a7, type: 3}
-  - {fileID: 21300000, guid: e6c936dd741d7094b966bb91699d01d0, type: 3}
   - {fileID: 21300000, guid: 5ac8c88b0ce8047419bdf72d6e2dcbf8, type: 3}
-  - {fileID: 21300000, guid: 31c5c5c1b14f4a5478d168df314d7095, type: 3}
-  - {fileID: 21300000, guid: cd6f289fbf525e9429876adf3ef5362b, type: 3}
-  - {fileID: 21300000, guid: 753621efd11ed264295444bca80731a4, type: 3}
-  - {fileID: 21300000, guid: 64a37d451b18fb144ba4933e2db5685d, type: 3}
-  - {fileID: 21300000, guid: 64a37d451b18fb144ba4933e2db5685d, type: 3}
-  - {fileID: 21300000, guid: 64a37d451b18fb144ba4933e2db5685d, type: 3}
-  - {fileID: 21300000, guid: 64a37d451b18fb144ba4933e2db5685d, type: 3}
-  buttonEnabled: 01000000000100000000010101
+  - {fileID: 0}
+  buttonEnabled: 0101010101
   buttonText:
-  - CuSO4
-  - Na2CO3
-  - SrCl2
-  - SnCl2
-  - Na2SO4
-  - NaCl
-  - AgNO3
-  - Pb(NO3)2
-  - MgCl2
-  - CoSO4
-  - AgCl
-  - CuCO3
   - MgSO4
+  - CuCO3
+  - CuSO4
+  - NaCl
+  - AgCl
   explanationDisplay: {fileID: 8074622175126917767}
 --- !u!1 &2106900760363387637
 GameObject:
